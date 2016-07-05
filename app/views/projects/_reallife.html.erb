@@ -1,0 +1,35 @@
+<div class="form-group">
+  <label class="string optional control-label">這件事能配合現實生活嗎？</label>
+  <% if @editable then %>
+    <%= link_to("新增配合事項", new_project_real_life_path(@project), class: "btn btn-info pull-right") %>
+  <% end %>  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>要在</th>
+        <th>做什麼事</th>
+        <% if @editable then %>
+          <th>選項</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @real_lives.each do |real_life| %>
+        <tr>
+          <td><%= render_schedule_type(real_life.schedule_type, real_life.schedule_num) %></td>
+          <td><%= real_life.description %></td>
+          <% if @editable then %>
+            <td>
+              <%= link_to("編輯", edit_project_real_life_path(real_life.project, real_life),
+                                class: "btn btn-primary btn-xs") %>
+              <%= link_to("刪除", project_real_life_path(real_life.project, real_life),
+                                class: "btn btn-danger btn-xs",
+                                method: :delete,
+                                data: {confrim: "確定刪除？"}) %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

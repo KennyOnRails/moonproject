@@ -1,0 +1,43 @@
+<div class="form-group">
+  <label class="string optional control-label">時間進度怎麼定？</label>
+  <% if @editable then %>
+    <%= link_to("新增時間進度", new_project_progress_path(@project), class: "btn btn-warning pull-right") %>
+  <% end %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>在哪天前</th>
+        <th>要完成什麼事</th>
+        <th>狀態</th>
+        <% if @editable then %>
+          <th>選項</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @progresses.each do |progress| %>
+        <tr>
+          <td><%= progress.deadline %></td>
+          <td><%= progress.description %></td>
+          <td><%= render_aasm_state_name(progress) %></td>
+          <% if @editable then %>
+            <td>
+              <% if progress.aasm_state == "ready" then %>
+                <%= link_to "確認", confirm_project_progress_path(progress.project, progress),
+                                   method: :post,
+                                   class: "btn btn-success btn-xs",
+                                   data: {confirm: "確定完成了嗎？"} %>
+              <% end %>
+              <%= link_to "編輯", edit_project_progress_path(progress.project, progress),
+                                 class: "btn btn-primary btn-xs" %>
+              <%= link_to "刪除", project_progress_path(progress.project, progress),
+                                 method: :delete,
+                                 class: "btn btn-danger btn-xs",
+                                 data: {confirm: "確定要刪除？"}  %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

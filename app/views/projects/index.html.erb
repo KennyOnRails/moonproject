@@ -1,0 +1,9 @@
+<div class="row">
+  <% @projects.each do |project|%>
+    <div class="col-xs-6 col-md-3">
+      <%= link_to project.target, project_path(project) %>
+      進度 <%= render_complete_rate(project) %> %
+      <%= link_to("編輯", wizard_project_path(project), class: "btn btn-info btn-small") %>
+    </div>
+  <% end %>
+</div>

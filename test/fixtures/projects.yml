@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  target: MyString
+  subtarget: MyString
+  success_define: MyString
+  possible: MyString
+
+two:
+  target: MyString
+  subtarget: MyString
+  success_define: MyString
+  possible: MyString

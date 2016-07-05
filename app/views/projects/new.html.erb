@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>新增計劃</h2>
+    <%= simple_form_for @project do |f| %>
+      <div class="form-group">
+        <%=f.input :target, label: "這次的登月目標是什麼？", input_html: {class: "form-control", placeholder: "跑馬拉松"}%>
+        <%=f.input :subtarget, label: "明確的子目標是什麼？", input_html: {class: "form-control", placeholder: "不間斷跑十一公里"}%>
+        <%=f.input :success_define, label: "怎樣才算成功？", input_html: {class: "form-control", placeholder: "每天跑五公里，不能用走的"}%>
+        <%=f.input :possible, label: "這件事有可能辦的到嗎？", input_html: {class: "form-control", placeholder: "有可能，只要一個星期跑三次的話"}%>
+      </div>
+      <%=f.submit "Submit", class: "btn btn-primary", data:{disable_with: "Submitting..."}%>
+    <% end %>
+  </div>
+</div>
