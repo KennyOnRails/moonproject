@@ -45,6 +45,13 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_to projects_path
   end
+  def fb_test
+    auth = FbGraph2::Auth.new("1110457175681809", "4697ccfb115007c5f94b44207c939027")
+    signed_request = auth.from_signed_request params[:signed_request]
+    p_token = signed_request.access_token
+    puts "===========================Kenny Test=============================="
+    puts "access_token=#{p_token}"
+  end
   private
   def project_params
     params.require(:project).permit(:target, :subtarget, :success_define, :possible,

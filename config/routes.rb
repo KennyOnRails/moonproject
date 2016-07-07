@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     member do
       get :wizard
+      get :fb_test
     end
   end
   root "projects#index"

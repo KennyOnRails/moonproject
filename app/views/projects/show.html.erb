@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <h2>你的登月計劃(<%= @project.token %>)</h2>
+    <%= link_to("FB發文測試", fb_test_project_path(@project), method: :get, class: "btn-primary") %>
     <%= render "projects/project" %>
     <%= render "reallife" %>
     <%= render "progress" %>
