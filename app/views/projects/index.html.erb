@@ -1,15 +1,5 @@
-<div class="row">
-  <% @projects.each do |project|%>
-    <div class="col-xs-6 col-md-3">
-      <%= link_to project.target, project_path(project) %>
-      <%= social_share_button_tag(project.target) %>
-      進度 <%= render_complete_rate(project) %> %      
-    </div>
-  <% end %>
-</div>
 <form class="form-search">
    <fieldset>
-      <legend>Legend text</legend>
       <div class="control-group success">
          <label class="control-label">計劃通行證</label>
          <div class="controls">
@@ -23,3 +13,12 @@
       </div>
    </fieldset>
 </form>
+<div class="row">
+  <% @projects.each do |project|%>
+    <div class="col-xs-6 col-md-3">
+      <%= link_to project.target, project_path(project) %>
+      <%= social_share_button_tag(project.target) %>
+      進度 <%= render_complete_rate(project) %> %
+    </div>
+  <% end %>
+</div>

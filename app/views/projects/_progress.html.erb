@@ -17,7 +17,7 @@
     <tbody>
       <% @progresses.each do |progress| %>
         <tr>
-          <td><%= progress.deadline %></td>
+          <td><%= render_deadline_format(progress) %></td>
           <td><%= progress.description %></td>
           <td><%= render_aasm_state_name(progress) %></td>
           <% if @editable then %>
