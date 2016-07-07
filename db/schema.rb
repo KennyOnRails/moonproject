@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704081306) do
+ActiveRecord::Schema.define(version: 20160706221142) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notify_methods", force: :cascade do |t|
     t.integer  "project_id"
@@ -38,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160704081306) do
     t.datetime "updated_at",                   null: false
     t.integer  "progresses_count", default: 0
     t.integer  "confirm_count",    default: 0
+    t.string   "token"
   end
 
   create_table "real_lives", force: :cascade do |t|

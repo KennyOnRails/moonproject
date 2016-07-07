@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="/assets/application.css" />
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>你的登月計劃</h2>
+    <div class="form-group">
+      <label class="string optional control-label">計劃通行代碼：</label>
+      <span class='uneditable-input form-control'><%= @project.token %></span>
+    </div>    
+    <%= render "projects/project" %>
+    <%= render "projects/reallife" %>
+    <%= render "projects/progress" %>
+  </div>
+</div>

@@ -2,8 +2,24 @@
   <% @projects.each do |project|%>
     <div class="col-xs-6 col-md-3">
       <%= link_to project.target, project_path(project) %>
-      進度 <%= render_complete_rate(project) %> %
-      <%= link_to("編輯", wizard_project_path(project), class: "btn btn-info btn-small") %>
+      <%= social_share_button_tag(project.target) %>
+      進度 <%= render_complete_rate(project) %> %      
     </div>
   <% end %>
 </div>
+<form class="form-search">
+   <fieldset>
+      <legend>Legend text</legend>
+      <div class="control-group success">
+         <label class="control-label">計劃通行證</label>
+         <div class="controls">
+            <input type="text" id='token_qry' name="token-qry"
+               class="input-mini">
+            <p class="help-block">輸入您的計劃通行證來修改計劃</p>
+         </div>
+      </div>
+      <div class="form-actions">
+         <button class="btn btn-primary">計劃修正</button>
+      </div>
+   </fieldset>
+</form>

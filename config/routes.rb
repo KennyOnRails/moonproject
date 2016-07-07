@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :projects do
     resources :real_lives
+    resources :comments
     resources :progresses do
       member do
         post :confirm

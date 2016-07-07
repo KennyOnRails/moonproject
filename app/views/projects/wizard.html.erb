@@ -1,24 +1,12 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <h2>登月計劃精靈</h2>
-    <div class="form-group">
-      <label class="string optional control-label">這次的登月目標是什麼？</label>
-      <span class='uneditable-input form-control'><%= @project.target %></span>
+    <div class="row">
+      <h2>登月計劃精靈</h2>
+      <%= link_to("刪除計劃", project_path(@project), method: :delete, class: "btn btn-danger pull-right") %>      
     </div>
-    <div class="form-group">
-      <label class="string optional control-label">明確的子目標是什麼？</label>
-      <span class='uneditable-input form-control'><%= @project.subtarget %></span>
-    </div>
-    <div class="form-group">
-      <label class="string optional control-label">怎樣才算成功？</label>
-      <span class='uneditable-input form-control'><%= @project.success_define %></span>
-    </div>
-    <div class="form-group">
-      <label class="string optional control-label">這件事有可能辦的到嗎？</label>
-      <span class='uneditable-input form-control'><%= @project.possible %></span>
-    </div>
-    <%= render "reallife" %>
-    <%= render "progress" %>
+    <%= render "projects/project" %>
+    <%= render "projects/reallife" %>
+    <%= render "projects/progress" %>
 
     <div class="form-group">
       <%= simple_form_for(@project) do |f| %>

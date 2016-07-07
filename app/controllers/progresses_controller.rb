@@ -20,7 +20,7 @@ class ProgressesController < ApplicationController
     @project = Project.find(params[:project_id])
     @progress = @project.progresses.find(params[:id])
     if @progress.update(progress_params) then
-      redirect_to root_path
+      redirect_to wizard_project_path(@project)
     else
       render :edit
     end

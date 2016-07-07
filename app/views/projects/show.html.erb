@@ -1,22 +1,7 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <h2>你的登月計劃</h2>
-    <div class="form-group">
-      <label class="string optional control-label">這次的登月目標是什麼？</label>
-      <span class='uneditable-input form-control'><%= @project.target %></span>
-    </div>
-    <div class="form-group">
-      <label class="string optional control-label">明確的子目標是什麼？</label>
-      <span class='uneditable-input form-control'><%= @project.subtarget %></span>
-    </div>
-    <div class="form-group">
-      <label class="string optional control-label">怎樣才算成功？</label>
-      <span class='uneditable-input form-control'><%= @project.success_define %></span>
-    </div>
-    <div class="form-group">
-      <label class="string optional control-label">這件事有可能辦的到嗎？</label>
-      <span class='uneditable-input form-control'><%= @project.possible %></span>
-    </div>
+    <h2>你的登月計劃(<%= @project.token %>)</h2>
+    <%= render "projects/project" %>
     <%= render "reallife" %>
     <%= render "progress" %>
   </div>
