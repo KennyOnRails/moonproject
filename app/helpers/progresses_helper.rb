@@ -9,8 +9,11 @@ module ProgressesHelper
   end
   def render_deadline_format(progress)
     if ENV['RACK_ENV'] == 'production' then
-      date_hash = progress.deadline
-      deadline_string = "#{date_hash[1]}/#{date_hash[2]}/#{date_hash[3]}"
+      date_str = progress.deadline
+      date_str.slice! "{"
+      date_str.slice! "}"
+      date_hash = Hash[date_hash.split(",").collect{|x| x.strip.split("=>")}]
+      deadline_format = "#{date_hash['1']}/#{date_hash['2']}/#{date_hash['3']}"
     else
       progress.deadline
     end
