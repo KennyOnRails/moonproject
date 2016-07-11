@@ -36,6 +36,9 @@ class ProgressesController < ApplicationController
     @progress = @project.progresses.find(params[:id])
     @progress.confirm!
     @project.add_confirm!
+    if @project.progresses_count == @project.confirm_count then
+      @project.close_project!
+    end
     redirect_to wizard_project_path(@project)
   end
 

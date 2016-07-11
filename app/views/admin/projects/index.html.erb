@@ -1,0 +1,29 @@
+<h2>計劃列表</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>計劃名稱</th>
+      <th>選項</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td>
+          <%= project.id %>
+        </td>
+        <td>
+          <%= link_to(project.target, project_path(project)) %>
+        </td>
+        <td>
+          <%= link_to("刪除", admin_project_path(project),
+                      class: "btn btn-danger btn-xs delete_project",
+                      method: :delete,
+                      remote: true,
+                      data: { confirm: "確認要刪除此計劃?" } ) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -27,6 +27,7 @@ gem "aasm"
 gem "social-share-button"
 gem "letter_opener", group: :development
 gem "roadie","2.4.3", group: :development
+gem "devise"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

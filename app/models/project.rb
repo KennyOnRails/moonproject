@@ -15,4 +15,17 @@ class Project < ActiveRecord::Base
   def generate_token!
     self.token = SecureRandom.urlsafe_base64
   end
+  include AASM
+  aasm column: "project_state" do
+    state :new, initial: true
+    state :closed
+    state :deleted
+
+    event :close_project do
+      transitions from: :new, to: :closed
+    end
+    event :delete_project do
+      transitions from: :new, to: :deleted
+    end
+  end
 end

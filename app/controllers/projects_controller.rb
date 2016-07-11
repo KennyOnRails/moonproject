@@ -1,10 +1,14 @@
 class ProjectsController < ApplicationController
   def index
-    if params.has_key?("token-qry") then
-      @project = Project.find_by_token(params["token-qry"])
-      redirect_to wizard_project_path(@project)
+    if params.has_key?("search") then
+      @projects = Project.where("target like ?","%#{params["search"]}%")
     else
-      @projects = Project.all
+      if params.has_key?("token-qry") then
+        @project = Project.find_by_token(params["token-qry"])
+        redirect_to wizard_project_path(@project)
+      else
+        @projects = Project.where(project_state: "new")
+      end
     end
   end
   def new
