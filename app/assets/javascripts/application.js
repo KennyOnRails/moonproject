@@ -16,4 +16,9 @@
 //= require social-share-button
 //= require bootstrap/dropdown
 //= require bootstrap/alert
+//= require gallery/jquery.blueimp-gallery.min.js
+//= require mobile/touchSwipe.min
+//= require respond/respond
+//= require wow/wow.min
+//= require script
 //= require_tree .
