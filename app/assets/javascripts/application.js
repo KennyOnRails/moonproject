@@ -14,11 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require social-share-button
-//= require bootstrap/dropdown
-//= require bootstrap/alert
 //= require gallery/jquery.blueimp-gallery.min.js
 //= require mobile/touchSwipe.min
 //= require respond/respond
 //= require wow/wow.min
 //= require script
+//= require bootstrap/dropdown
+//= require bootstrap/alert
+//= require bootstrap
 //= require_tree .
