@@ -7,12 +7,13 @@ class ProjectsController < ApplicationController
         @project = Project.find_by_token(params["token-qry"])
         redirect_to wizard_project_path(@project)
       else
-        @projects = Project.where(project_state: "new")
+        @projects = Project.where(project_state: "new").limit(12)
       end
     end
   end
   def new
     @project = Project.new
+    @photo = @project.build_photo
   end
   def create
     @project = Project.new(project_params)
@@ -31,6 +32,7 @@ class ProjectsController < ApplicationController
   def wizard
     @project = Project.find(params[:id])
     @project.build_notify if @project.notify.nil?
+    @project.build_photo if @project.photo.nil?
     @real_lives = @project.real_lives.all
     @progresses = @project.progresses
     @editable = true
@@ -38,7 +40,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params) then
-      ProjectMailer.notify_project(@project).deliver_now!
+      #ProjectMailer.notify_project(@project).deliver_now!
       redirect_to projects_path
     else
       redirect_to :wizard
@@ -52,6 +54,7 @@ class ProjectsController < ApplicationController
   private
   def project_params
     params.require(:project).permit(:target, :subtarget, :success_define, :possible,
-                                    notify_attributes:[:email])
+                                    notify_attributes:[:email],
+                                    photo_attributes:[:image, :id])
   end
 end

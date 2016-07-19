@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708225539) do
+ActiveRecord::Schema.define(version: 20160714211148) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "project_id"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20160708225539) do
   create_table "notify_methods", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

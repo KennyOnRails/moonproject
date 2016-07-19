@@ -4,9 +4,13 @@ class Project < ActiveRecord::Base
   has_many :progresses, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :notify, class_name:"NotifyMethod", dependent: :destroy
-  before_create :generate_token!
+  has_one :photo, dependent: :destroy
 
   accepts_nested_attributes_for :notify, :reject_if=>:all_blank
+  accepts_nested_attributes_for :photo,  :reject_if=>:all_blank
+
+  before_create :generate_token!
+
 
   def add_confirm!
     self.confirm_count += 1

@@ -1,4 +1,19 @@
 <div class="form-group">
+  <% if @project.photo.present? %>
+    <div style="background-image: url( <%=@project.photo.image.medium.url%> ); background-attachment:center; background-position: center">
+      <div class="container">
+        <h3 style="color: white"><%= @project.target %>計劃</h2>
+      </div>
+    </div>
+  <% else %>
+    <div style="background-image: url( "http://placehold.it/900x200&text=No Pic" ); background-attachment:center; background-position: center">
+      <div class="container">
+        <h3 style="color: black"><%= @project.target %>計劃</h2>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="form-group">
   <label class="string optional control-label">這次的登月目標是什麼？</label>
   <span class='uneditable-input form-control'><%= @project.target %></span>
 </div>

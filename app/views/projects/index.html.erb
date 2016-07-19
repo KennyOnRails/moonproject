@@ -26,7 +26,11 @@
 <div id="works"  class=" clearfix grid">
   <% @projects.each do |project| %>
     <figure class="effect-oscar  wowload fadeInUp">
-        <%=image_tag("portfolio/1.jpg", alt: "img01")%>
+        <% if project.photo.present? %>
+          <%= image_tag(project.photo.image.url, alt: "img01") %>
+        <% else %>          
+          <%= render_random_image %>
+        <% end %>
         <figcaption>
             <h2><%= project.target %></h2>
             <p><%= project.subtarget %><br>
