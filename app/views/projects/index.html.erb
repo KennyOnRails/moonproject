@@ -28,7 +28,7 @@
     <figure class="effect-oscar  wowload fadeInUp">
         <% if project.photo.present? %>
           <%= image_tag(project.photo.image.url, alt: "img01") %>
-        <% else %>          
+        <% else %>
           <%= render_random_image %>
         <% end %>
         <figcaption>
@@ -115,7 +115,7 @@
 	<i class="fa fa-smile-o  fa-5x"></i><h4>24 Clients</h4>
 	</div>
 	<div class="col-sm-3 col-xs-6">
-	<i class="fa fa-rocket  fa-5x"></i><h4>75 Projects</h4>
+	<i class="fa fa-rocket  fa-5x"></i><h4><%= @projects.count %> Projects</h4>
 	</div>
 	<div class="col-sm-3 col-xs-6">
 	<i class="fa fa-cloud-download  fa-5x"></i><h4>454 Downloads</h4>

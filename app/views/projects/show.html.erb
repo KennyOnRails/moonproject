@@ -5,4 +5,19 @@
     <%= render "reallife" %>
     <%= render "progress" %>
   </div>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="fb-comments"
+         data-href= "<%= project_url(@project.id) %>"
+         data-numposts="5"
+         data-width="100%"></div>
+  </div>
 </div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7&appId=1110457175681809";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
