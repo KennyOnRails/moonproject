@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       end
     end
     member do
-      get :wizard
+      get :wizard      
     end
   end
 
