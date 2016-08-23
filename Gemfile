@@ -30,6 +30,7 @@ gem "roadie","2.4.3", group: :development
 gem "devise"
 gem "carrierwave"
 gem "mini_magick"
+gem 'gravatar_image_tag', '1.2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

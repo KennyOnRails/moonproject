@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require social-share-button
 //= require bootstrap/dropdown
 //= require bootstrap/alert
@@ -22,3 +21,4 @@
 //= require respond/respond
 //= require wow/wow.min
 //= require script
+//= require turbolinks
